@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Web Design Tool</title>
+</head>
+<body> <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Format Bar -->
+            <div id="format-bar" class="sticky-top">
+
+        <label for="textInput">Text:</label>
+        <input type="text" id="textInput" oninput="updateText()">
+        <br>
+        <label for="heightInput">Height:</label>
+        <input type="number" id="heightInput" oninput="updateHeight()">
+        <br>
+        <label for="widthInput">Width:</label>
+        <input type="number" id="widthInput" oninput="updateWidth()">
+        <br>
+        <label for="paddingInput">Padding:</label>
+        <input type="number" id="paddingInput" oninput="updatePadding()">
+      
+        <label for="shadowSizeInput">Shadow Size:</label>
+        <input type="number" id="shadowSizeInput" oninput="updateShadowSize()">
+        <br>
+        <label for="rotateInput">Rotate:</label>
+        <input type="number" id="rotateInput" oninput="updateRotate()">
+        <br>
+        <label for="fontFamilyInput">Font Family:</label>
+        <select id="fontFamilyInput" onchange="updateFontFamily()">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <!-- Add more font options as needed -->
+        </select>
+        <br>
+        <label for="fontSizeInput">Font Size:</label>
+        <input type="number" id="fontSizeInput" oninput="updateFontSize()">
+        <br>
+        <label for="backgroundColorInput">Background Color:</label>
+        <input type="color" id="backgroundColorInput" onchange="updateBackgroundColor()">
+        <br>
+        <label for="colorInput">Text Color:</label>
+        <input type="color" id="colorInput" onchange="updateColor()">
+        <br>
+        <input type="file" id="imageInput" class="movable" accept="image/*" onchange="insertImage()"> 
+        <label for="borderRadiusInput">Border Radius:</label>
+        <input type="number" id="borderRadiusInput" oninput="updateBorderRadius()">
+        <br>
+        <br>
+        <button onclick="executeCommand('italic')">Italic</button>
+        <button onclick="executeCommand('bold')">Bold</button>
+        <button onclick="executeCommand('cut')">Cut</button>
+        <button onclick="executeCommand('copy')">Copy</button>
+        <button onclick="executeCommand('paste')">Paste</button>
+        <button onclick="executeCommand('underline')">Underline</button>
+        <button onclick="executeCommand('strikeThrough')">Strike Through</button>
+        <br>
+        <button onclick="insertCircle()">Insert Circle</button>
+        <button onclick="insertRectangle()">Insert Rectangle</button>
+        <button onclick="insertTriangle()">Insert Triangle</button>
+
+        <button onclick="moveElement('left')">Move Left</button>
+        <button onclick="moveElement('right')">Move Right</button>
+        <button onclick="moveElement('up')">Move Up</button>
+        <button onclick="moveElement('down')">Move Down</button>
+   
+        <!-- Modify shape color -->
+        <label for="shapeColorInput">Shape Color:</label>
+        <input type="color" id="shapeColorInput" onchange="updateShapeColor()">
+        <br>
+
+        <!-- Undo and Redo buttons -->
+        <button onclick="executeCommand('undo')">Undo</button>
+        <button onclick="executeCommand('redo')">Redo</button>
+<!-- Add this to your existing format-bar -->
+<label for="shadowColorInput">Shadow Color:</label>
+<input type="color" id="shadowColorInput" onchange="updateShadowColor()">
+<label for="opacityInput">Opacity:</label>
+<input type="range" id="opacityInput" min="0" max="1" step="0.1" value="1" oninput="updateOpacity()">
+<span id="opacityValue">1</span>
+<!-- Add this to your existing format-bar -->
+<button onclick="insertTextBox()">Insert Text Box</button>
+<button onclick="saveCanvasAsImage()">Save as Image</button>
+<button style="background-color: #4CAF50; /* Green */" onclick="saveCanvasAsHTML()">Save as HTML</button>
+<label for="marginTopInput">Margin Top:</label>
+<input type="number" id="marginTopInput" oninput="updateMargin('marginTop')">
+<br>
+<label for="marginRightInput">Margin Right:</label>
+<input type="number" id="marginRightInput" oninput="updateMargin('marginRight')">
+<br>
+<label for="marginBottomInput">Margin Bottom:</label>
+<input type="number" id="marginBottomInput" oninput="updateMargin('marginBottom')">
+<br>
+<label for="marginLeftInput">Margin Left:</label>
+<input type="number" id="marginLeftInput" oninput="updateMargin('marginLeft')">
+<br>
+
+<!-- Existing format bar buttons -->
+
+<button onclick="makePositionRelative()">Position Relative</button>
+<button onclick="floatLeft()">Float Left</button>
+<button onclick="floatRight()">Float Right</button>
+
+<!-- Existing format bar buttons -->
+<button onclick="addLink()">Add Link</button>
+<button onclick="enableImageInsertion()">Insert Image</button>
+<button onclick="toggleMoveable()">Toggle Movable</button>
+
+        <button onclick="applyAllStyles()">Apply All Styles</button>
+    </div>    </div>    </div>    </div> 
+    <div class="row">
+        <div class="col-lg-12">     
+    <div id="canvas" contenteditable="true"></div></div> </div>  
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

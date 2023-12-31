@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container-fluid {
+    overflow-x: hidden;
+}
+
+#format-bar {
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    background-color: #e0e0e0;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    z-index: 1000; /* Ensure the format bar is above the canvas */
+    box-shadow: black 10px;
+}
+
+#format-bar button, #format-bar select, #format-bar input[type="color"], #format-bar input[type="number"] {
+    margin: 5px;
+}
+
+#canvas {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: transparent;
+    overflow: auto;
+    box-sizing: border-box;
+    position: relative;
+    height: 90vh;
+    
+ 
+}
+
+/* Your existing styles */
+.shape {
+    width: 50px;
+    height: 50px;
+    background-color: #3498db;
+    position: absolute;
+    cursor: move;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 43.3px solid #e74c3c;
+}
+
+.movable img {
+    display: block;
+    border: 1px solid #000;
+}
+
+.move-handles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.arrow {
+    width: 100px;
+    height: 100px;
+    background-color: #333;
+    cursor: pointer;
+}
+
+.up, .down {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.left, .right {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-box {
+    position: relative;
+}
+
+.rectangle-handle {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: #333;
+    cursor: ns-resize;
+    bottom: 0;
+}
+
+/* Additional styles for text styles */
+#format-bar select {
+    width: 100px; /* Adjust the width as needed */
+}
+
+#format-bar input[type="number"] {
+    width: 70px; /* Adjust the width as needed */
+}
